@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Nós Dois ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+margin:0;
+font-family:'Poppins',sans-serif;
+text-align:center;
+color:white;
+overflow-x:hidden;
+background: radial-gradient(circle at top, #1a1a40, #000010);
+}
+
+/* TITULO */
+
+h1{
+margin-top:40px;
+font-size:40px;
+}
+
+/* CONTADOR */
+
+#contador{
+font-size:24px;
+margin:20px;
+}
+
+/* CARTINHA */
+
+.cartinha{
+background:white;
+color:#333;
+width:80%;
+max-width:600px;
+margin:auto;
+padding:25px;
+border-radius:15px;
+box-shadow:0 10px 30px rgba(0,0,0,0.2);
+animation:aparecer 2s;
+}
+
+@keyframes aparecer{
+from{opacity:0; transform:scale(0.8);}
+to{opacity:1; transform:scale(1);}
+}
+
+/* PLAYLIST */
+
+.musica img{
+width:220px;
+border-radius:15px;
+margin-top:20px;
+box-shadow:0 10px 25px rgba(0,0,0,0.3);
+}
+
+/* GALERIA */
+
+.galeria{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:20px;
+padding:30px;
+}
+
+.galeria img{
+width:100%;
+aspect-ratio:307.5 / 456.92;
+object-fit:cover;
+border-radius:15px;
+transition:0.4s;
+}
+
+.galeria img:hover{
+transform:scale(1.05);
+}
+
+/* CORAÇÕES */
+
+.heart{
+position:fixed;
+top:-10px;
+font-size:20px;
+animation:fall linear forwards;
+}
+
+@keyframes fall{
+to{
+transform:translateY(100vh);
+opacity:0;
+}
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>Pra Minha Princesa ❤️</h1>
+
+<div id="contador"></div>
+
+<div class="cartinha">
+
+<h2>💌 Para você</h2>
+
+<p>
+Meu amor, fiz esse pequeno site para te mostrar
+o quanto você é especial para mim.
+
+Cada momento ao seu lado é único e eu sou muito
+feliz por ter você na minha vida.
+
+Eu te amo hoje, amanhã e sempre ❤️
+</p>
+
+</div>
+
+<br>
+
+<div class="musica">
+
+<h2>Nossa Playlist 🎵</h2>
+
+<img src="capa.jpg">
+
+<br><br>
+
+<iframe style="border-radius:12px"
+src="https://open.spotify.com/embed/playlist/66loNqBEIPVf8DidnF09Zq"
+width="100%"
+height="352"
+frameBorder="0"
+allowfullscreen=""
+allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+</iframe>
+
+</div>
+
+<h2>Nossos Momentos 📸</h2>
+
+<div class="galeria">
+
+<img src="foto1.jpg">
+<img src="foto2.jpg">
+<img src="foto3.jpg">
+<img src="foto4.jpg">
+
+</div>
+
+<script>
+
+/* CONTADOR */
+
+var dataInicio = new Date("2025-05-09T20:00:00");
+
+function atualizar(){
+
+var agora = new Date();
+var tempo = agora - dataInicio;
+
+var dias = Math.floor(tempo/(1000*60*60*24));
+var horas = Math.floor((tempo/(1000*60*60))%24);
+var minutos = Math.floor((tempo/(1000*60))%60);
+var segundos = Math.floor((tempo/1000)%60);
+
+document.getElementById("contador").innerHTML =
+"Estamos juntos há ❤️ " +
+dias+" dias "+
+horas+" horas "+
+minutos+" minutos "+
+segundos+" segundos";
+
+}
+
+setInterval(atualizar,1000);
+
+/* CORAÇÕES */
+
+setInterval(function(){
+
+let heart = document.createElement("div")
+heart.classList.add("heart")
+heart.innerHTML="❤️"
+
+heart.style.left=Math.random()*100+"vw"
+heart.style.fontSize=(Math.random()*20+10)+"px"
+heart.style.animationDuration=(Math.random()*3+3)+"s"
+
+document.body.appendChild(heart)
+
+setTimeout(()=>{heart.remove()},5000)
+
+},300)
+
+</script>
+
+</body>
+</html>
